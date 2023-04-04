@@ -1,9 +1,30 @@
 
 <?php include('head.php'); ?>
-<?php include('header.php'); ?>
+<?php
+include('header.php'); 
+
+
+if ($_SESSION["connecter"] != "yes") {
+    header("location:login.php");
+    exit();
+}
+
+    $bienvenue = "Bonsoir et bienvenue " .
+        $_SESSION["prenom_nom"];
+
+
+
+if ($_SESSION["prenom_nom"] == "Owner BOULANGERIE") {?>
+
+      <a class="primary-btn" href="commandes.php" >voir les commandes a realiser</a>
+      <?php
+      }
+        ?>
+
+
 
 <body>
-
+  <a href="test.php"></a>
   <div class="hero_area">
     <div class="bg-box">
       <img src="images/pain_cover.png" alt="">
@@ -12,18 +33,10 @@
       <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <?php include('caroussel-item.php'); ?>
-          <?php include('caroussel-item.php'); ?>
-          <?php include('caroussel-item.php'); ?>
+
           
         </div>
-        <div class="container">
-          <ol class="carousel-indicators">
-            <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-            <li data-target="#customCarousel1" data-slide-to="1"></li>
-            <li data-target="#customCarousel1" data-slide-to="2"></li>
-          </ol>
-        </div>
-      </div>
+
 
     </section>
   </div>
@@ -35,28 +48,23 @@
         </h2>
       </div>
 
-      <ul class="filters_menu">
-        <li class="active" data-filter="*">All</li>
-        <li data-filter=".vienoiserie">Vienoiserie</li>
-        <li data-filter=".pain">Baguette</li>
-        <li data-filter=".patisserie">Patisserrie</li>
+        <!-- <ul class="filters_menu">
+          <li class="active" data-filter="*">All</li>
+          <li data-filter=".vienoiserie">Vienoiserie</li>
+          <li data-filter=".pain">Baguette</li>
+          <li data-filter=".patisserie">Patisserrie</li>
 
-      </ul>
+        </ul> -->
       
       <div class="filters-content">
         <div class="row grid">
+        
         <?php include('product_card.php'); ?>
-        <?php include('product_card.php'); ?>
-        <?php include('product_card.php'); ?>
-          
-
+        
+        
         </div>
       </div>
-      <div class="btn-box">
-        <a href="">
-          Voir plus
-        </a>
-      </div>
+      
     </div>
   </section>
 
@@ -74,15 +82,13 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                We Are super cool boulangerie
+                nous sommes super cool boulangerie
               </h2>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In fermentum euismod velit ut molestie. Duis mauris urna, rhoncus a nisl nec, imperdiet volutpat ligula. Aliquam eget porttitor magna, eget fermentum lectus. Sed at urna mattis tortor dignissim consectetur. Vestibulum magna purus, volutpat quis dictum et, efficitur
+            <p class="soustitre">
+            penser afin de ravitailler les grandes surfaces de produit de qualité le projet super-cool boulangerie est le fruit du savoir-faire de toute une équipe de boulangers pâtissiers qui ont reussi à automatiser la création se met de qualité sans perdre de douceur ou de croustillant tout cela pour atteindre un but, pouvoir manger du vrai pain dans des supermarchés
             </p>
-            <a href="">
-              Read More
-            </a>
+            
           </div>
         </div>
       </div>

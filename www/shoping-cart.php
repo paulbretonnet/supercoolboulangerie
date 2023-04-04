@@ -1,5 +1,14 @@
 <?php include('head.php'); ?>
-<?php include('header.php'); ?>
+<?php include('header.php');
+include('connection.php'); 
+
+
+    $id_produit = $_POST['id'];
+    $id_valeur =  $_POST['qt'];
+    $id_produit = $id_produit -1;
+
+    ?>
+
 <body>
     
 
@@ -27,23 +36,27 @@
                     </div>
                 </div>
             </div>
+            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
-                        <a href="index.php" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                        <a href="#" class="primary-btn cart-btn cart-btn-right">
-                            Update Cart</a>
+                        <a href="index.php" class="primary-btn cart-btn">continuer les achats</a>
+                        
                     </div>
                 </div>
                 
                 <div class="col-lg-6">
                     <div class="shoping__checkout">
-                        <h5>Cart Total</h5>
+                        <h5>Total</h5>
                         <ul>
                             
-                            <li>Total <span>0.80€</span></li>
+                            <li>Total <span><?php echo $produits[$id_produit]['prix']  * $id_valeur?> €</span></li>
                         </ul>
-                        <a href="checkout.php" class="primary-btn">PROCEED TO CHECKOUT</a>
+                        <form action="checkout.php" method="post" >
+                        <input type="hidden" id="name" name="id_produit" value="<?php echo $produits[$id_produit]['id_produit']?> " />
+                        <input type="hidden" id="name" name="prix" value="<?php echo $produits[$id_produit]['prix']  * $id_valeur?> " />
+                        <input class="primary-btn" type="submit" value="finaliser la commande">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -62,4 +75,6 @@
 
 </body>
 
+
 <?php include('footer.php'); ?>
+

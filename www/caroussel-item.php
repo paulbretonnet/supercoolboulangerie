@@ -6,8 +6,8 @@
             <h1>
               boulangerie d'exception
             </h1>
-            <p>
-              Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+            <p class="soustitre">
+            Super-cool boulangerie est une boulangerie permettant d'alimenter les grandes surfaces avec des produit de qualité en quantité , avec le savoir-faire de nos experts boulangers pâtissiers nous serons satisfaire vos clients aussi difficiles qu'ils soient
             </p>
             
           </div>

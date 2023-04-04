@@ -6,7 +6,19 @@ body {
 }
 
 
-
+.btn_fin{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+	font-size: 14px;
+	padding: 10px 28px 10px;
+	color: #ffffff;
+	text-transform: uppercase;
+	font-weight: 700;
+	background: #222831;;
+	letter-spacing: 2px;
+}
 .login-block {
     width: 320px;
     padding: 20px;
@@ -16,6 +28,23 @@ body {
     margin: 0 auto;
     margin-top: 7rem;
     margin-bottom: 7rem;
+}
+
+.fin{
+    color: #000;
+    font-size: 2rem;
+    font-weight:700;
+    text-align: center;
+}
+.login-block_fin {
+    width: 400px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #222831;
+    margin: 0 auto;
+    margin-top:10.5rem;
+    margin-bottom: 10.5rem;
 }
 
 .login-block h1 {

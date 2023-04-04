@@ -1,94 +1,85 @@
 <?php include('head.php'); ?>
-<?php include('header.php'); ?>
+<?php include('header.php'); 
+include('connection.php'); 
+
+$prix =  $_POST['prix'];
+
+
+
+
+?>
+
 <body>
     <section class="checkout spad">
         <div class="container">
-            
+
             <div class="checkout__form">
-                <h4>Billing Details</h4>
-                <form action="#">
+                <h4>detail de la facture</h4>
+                <form method='post' action="fin.php">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>First Name<span>*</span></p>
-                                        <input type="text">
+                                        <p>Prenom<span>*</span></p>
+                                        <input type="text" id="name" name="prenom">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>Last Name<span>*</span></p>
-                                        <input type="text">
+                                        <p>Nom<span>*</span></p>
+                                        <input type="text" id="name" name="nom">
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
-                                <p>Country<span>*</span></p>
-                                <input type="text">
+                                <p>Addresse<span>*</span></p>
+                                <input type="text" placeholder="Street Address" class="checkout__input__add" id="name" name="adresse">
                             </div>
                             <div class="checkout__input">
-                                <p>Address<span>*</span></p>
-                                <input type="text" placeholder="Street Address" class="checkout__input__add">
-                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
+                                <p>ville<span>*</span></p>
+                                <input type="text" id="name" name="ville">
                             </div>
                             <div class="checkout__input">
-                                <p>Town/City<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Country/State<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text">
+                                <p>code postal<span>*</span></p>
+                                <input type="text" id="name" name="code_postal">
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text">
+                                        <p>Telephone<span>*</span></p>
+                                        <input type="text" id="name" name="telephone">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Email<span>*</span></p>
-                                        <input type="text">
+                                        <input type="text" id="name" name="mail">
+
                                     </div>
+                                    <div>
+                                    <input type="hidden" id="name" name="prix" value="<?php echo $prix ?>">
+                                    
+                                </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
-                                <h4>Your Order</h4>
-                                <div class="checkout__order__products">Products <span>Total</span></div>
-                                <ul>
-                                    <li>baguette <span>0.80€</span></li>
+                                <h4>votre commande</h4>
+                                <div class="checkout__order__products">produit <span>Total</span></div>
+                                
+                                <div class="checkout__order__subtotal">total <span><?php echo $prix?>€</span></span></div>
+
+                                <div class="checkout__input__checkbox">
+                                </div>
+                                <p>merci de nous faire confiance pour vos achats</p>
+                                <div class="checkout__input__checkbox">
                                     
-                                </ul>
-                                <div class="checkout__order__subtotal">Subtotal <span>0.80€</span></div>
-                        
-                                <div class="checkout__input__checkbox">
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                    ut labore et dolore magna aliqua.</p>
-                                <div class="checkout__input__checkbox">
-                                    <label for="payment">
-                                        Check Payment
-                                        <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Paypal
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <button type="submit" class="site-btn">PLACE ORDER</button>
+
+                                <button  class="primary-btn" type="submit" name="envoyer" value="Envoyer">vlaider la commande</button>
                             </div>
                         </div>
                     </div>
@@ -106,7 +97,59 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
- 
+
+    <?php
+
+    if (isset($_POST['envoyer'])) {
+        // Récupération des données du formulaire
+        $nom = htmlspecialchars($_POST['nom']);
+        $mail = htmlspecialchars($_POST['mail']);
+        $prenom = htmlspecialchars($_POST['prenom']);
+        $telephone = htmlspecialchars($_POST['telephone']);
+        $adresse = htmlspecialchars($_POST['adresse']);
+        $code_postal = htmlspecialchars($_POST['code_postal']);
+        $ville = htmlspecialchars($_POST['ville']);
+        $prix = htmlspecialchars($_POST['prix']);
+
+        // Connexion à la base de données
+        $serveur = "localhost";
+        $utilisateur = "root";
+        $mot_de_passe = "boulangerie";
+        $nom_base_de_donnees = "supercoolboulangerie";
+
+        try {
+            $connexion = new PDO("mysql:host=$serveur;dbname=$nom_base_de_donnees", $utilisateur, $mot_de_passe);
+
+            // Configuration des options de PDO
+            $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            // Préparation et exécution de la requête SQL
+            $requete = $connexion->prepare("INSERT INTO commande (nom, mail, prenom, telephone, adresse, code_postal, ville, prix) VALUES (:nom, :mail, :adresse, :prenom, :telephone, :code_postal, :ville, :prix)");
+
+            $requete->bindParam(':nom', $nom);
+            $requete->bindParam(':mail', $mail);
+            $requete->bindParam(':prenom', $prenom);
+            $requete->bindParam(':telephone', $telephone);
+            $requete->bindParam(':adresse', $adresse);
+            $requete->bindParam(':code_postal', $code_postal);
+            $requete->bindParam(':ville', $ville);
+            $requete->bindParam(':prix', $prix);
+            
+
+            $requete->execute();
+
+            echo "Les données ont été insérées avec succès.";
+        } catch (PDOException $e) {
+            echo "Erreur lors de l'insertion des données: " . $e->getMessage();
+        }
+
+        // Fermeture de la connexion
+        $connexion = null;
+    }
+
+    ?>
+
+
 
 </body>
 
