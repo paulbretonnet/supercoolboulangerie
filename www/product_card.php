@@ -1,7 +1,7 @@
     <?php
     include('connection.php');
 
-    
+
     foreach ($produits as $produit) {
     ?>
 
@@ -15,20 +15,20 @@
               <h5><?php echo $produit['nom']; ?>
 
               </h5>
-              <p><?php echo $produit['recap']; 
-              ?>
+              <p><?php echo $produit['recap'];
+                  ?>
               </p>
               <div class='options'>
                 <h6><?php echo $produit['prix']; ?> €
                 </h6>
-                
-                
-                <form  method="post" action="shop-details.php"  >  
-                  <input type="hidden" name="id_produit" value="<?php echo $produit['id_produit']?> " />
-                  
-                  <input class="primary-btn"  type="submit" value="acheter">
+
+
+                <form method="post" action="shop-details.php">
+                  <input type="hidden" name="id_produit" value="<?php echo $produit['id_produit'] ?> " />
+
+                  <input class="primary-btn" type="submit" value="acheter">
                 </form>
-                
+
               </div>
             </div>
           </div>
@@ -44,7 +44,7 @@
 
 
 
- <!-- <a id="" href='shop-details.php'>
+    <!-- <a id="" href='shop-details.php'>
                     <svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 456.029 456.029' style='enable-background:new 0 0 456.029 456.029;' xml:space='preserve'>
                       <g>
                         <g>

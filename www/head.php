@@ -21,18 +21,23 @@
     <link rel="stylesheet" href="css/bootstrapmainpage.css" type="text/css">
     <link rel="stylesheet" href="css/login.css" type="text/css">
 
-<!-- bootstrap core css -->
-<link rel="stylesheet" type="text/css" href="css/bootstrapshop.css" />
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrapshop.css" />
 
-<!--owl slider stylesheet -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.minmainpage.css" />
-<!-- nice select  -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.minmainpage.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
-<!-- font awesome style -->
-<link href="css/font-awesome.minmainpage.css" rel="stylesheet" />
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.minmainpage.css" />
+    <!-- nice select  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.minmainpage.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+    <!-- font awesome style -->
+    <link href="css/font-awesome.minmainpage.css" rel="stylesheet" />
 
-<!-- Custom styles for this template -->
-<link href="css/stylemainpage.css" rel="stylesheet" />
-<!-- responsive style -->
-<link href="css/responsivemainpage.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="css/stylemainpage.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsivemainpage.css" rel="stylesheet" />
+    <?php session_start();;
+
+
+
+    ?>
 </head>

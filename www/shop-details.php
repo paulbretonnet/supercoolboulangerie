@@ -18,6 +18,7 @@ $id_produit = $id_produit-1
                         <div class="product__details__pic">
                             <div class="product__details__pic__item">
                                 <img class="product__details__pic__item--large" src="<?php echo $produits[$id_produit]['image']; ?>" alt="">
+                                
                             </div>
                         </div>
                     </div>

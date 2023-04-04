@@ -11,7 +11,3 @@ $sqlQuery = 'SELECT * FROM produits';
 $produitsStatement = $mysqlClient->prepare($sqlQuery);
 $produitsStatement->execute();
 $produits = $produitsStatement->fetchAll();
-
-
-    
-?>

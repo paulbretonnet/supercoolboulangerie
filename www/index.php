@@ -14,12 +14,12 @@ if ($_SESSION["connecter"] != "yes") {
 
 
 
-if ($_SESSION["prenom_nom"] == "Owner BOULANGERIE") {?>
+//if ($_SESSION["prenom_nom"] == "Owner BOULANGERIE") {?>
 
-      <a class="primary-btn" href="commandes.php" >voir les commandes a realiser</a>
-      <?php
-      }
-        ?>
+      <!-- <a class="primary-btn" href="commandes.php" >voir les commandes a realiser</a> -->
+ <?php
+      //}
+       //?>
 
 
 
@@ -86,7 +86,7 @@ if ($_SESSION["prenom_nom"] == "Owner BOULANGERIE") {?>
               </h2>
             </div>
             <p class="soustitre">
-            penser afin de ravitailler les grandes surfaces de produit de qualité le projet super-cool boulangerie est le fruit du savoir-faire de toute une équipe de boulangers pâtissiers qui ont reussi à automatiser la création se met de qualité sans perdre de douceur ou de croustillant tout cela pour atteindre un but, pouvoir manger du vrai pain dans des supermarchés
+            Penser afin de ravitailler les grandes surfaces de produit de qualité le projet super-cool boulangerie est le fruit du savoir-faire de toute une équipe de boulangers pâtissiers qui ont reussi à automatiser la création se met de qualité sans perdre de douceur ou de croustillant tout cela pour atteindre un but, pouvoir manger du vrai pain dans des supermarchés
             </p>
             
           </div>

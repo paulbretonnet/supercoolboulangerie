@@ -1,6 +1,6 @@
 <?php include('head.php'); ?>
-<?php include('header.php'); 
-include('connection.php'); 
+<?php include('header.php');
+include('connection.php');
 
 $prix =  $_POST['prix'];
 
@@ -58,9 +58,9 @@ $prix =  $_POST['prix'];
 
                                     </div>
                                     <div>
-                                    <input type="hidden" id="name" name="prix" value="<?php echo $prix ?>">
-                                    
-                                </div>
+                                        <input type="hidden" id="name" name="prix" value="<?php echo $prix ?>">
+
+                                    </div>
                                 </div>
                             </div>
 
@@ -69,17 +69,22 @@ $prix =  $_POST['prix'];
                             <div class="checkout__order">
                                 <h4>votre commande</h4>
                                 <div class="checkout__order__products">produit <span>Total</span></div>
-                                
-                                <div class="checkout__order__subtotal">total <span><?php echo $prix?>€</span></span></div>
+
+                                <div class="checkout__order__subtotal">total <span><?php echo $prix ?>€</span></span></div>
 
                                 <div class="checkout__input__checkbox">
                                 </div>
                                 <p>merci de nous faire confiance pour vos achats</p>
                                 <div class="checkout__input__checkbox">
-                                    
+
                                 </div>
 
-                                <button  class="primary-btn" type="submit" name="envoyer" value="Envoyer">vlaider la commande</button>
+
+
+
+
+
+                                <button class="primary-btn" type="submit" name="envoyer" value="Envoyer">valider la commande</button>
                             </div>
                         </div>
                     </div>
@@ -98,56 +103,7 @@ $prix =  $_POST['prix'];
     <script src="js/main.js"></script>
 
 
-    <?php
 
-    if (isset($_POST['envoyer'])) {
-        // Récupération des données du formulaire
-        $nom = htmlspecialchars($_POST['nom']);
-        $mail = htmlspecialchars($_POST['mail']);
-        $prenom = htmlspecialchars($_POST['prenom']);
-        $telephone = htmlspecialchars($_POST['telephone']);
-        $adresse = htmlspecialchars($_POST['adresse']);
-        $code_postal = htmlspecialchars($_POST['code_postal']);
-        $ville = htmlspecialchars($_POST['ville']);
-        $prix = htmlspecialchars($_POST['prix']);
-
-        // Connexion à la base de données
-        $serveur = "localhost";
-        $utilisateur = "root";
-        $mot_de_passe = "boulangerie";
-        $nom_base_de_donnees = "supercoolboulangerie";
-
-        try {
-            $connexion = new PDO("mysql:host=$serveur;dbname=$nom_base_de_donnees", $utilisateur, $mot_de_passe);
-
-            // Configuration des options de PDO
-            $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            // Préparation et exécution de la requête SQL
-            $requete = $connexion->prepare("INSERT INTO commande (nom, mail, prenom, telephone, adresse, code_postal, ville, prix) VALUES (:nom, :mail, :adresse, :prenom, :telephone, :code_postal, :ville, :prix)");
-
-            $requete->bindParam(':nom', $nom);
-            $requete->bindParam(':mail', $mail);
-            $requete->bindParam(':prenom', $prenom);
-            $requete->bindParam(':telephone', $telephone);
-            $requete->bindParam(':adresse', $adresse);
-            $requete->bindParam(':code_postal', $code_postal);
-            $requete->bindParam(':ville', $ville);
-            $requete->bindParam(':prix', $prix);
-            
-
-            $requete->execute();
-
-            echo "Les données ont été insérées avec succès.";
-        } catch (PDOException $e) {
-            echo "Erreur lors de l'insertion des données: " . $e->getMessage();
-        }
-
-        // Fermeture de la connexion
-        $connexion = null;
-    }
-
-    ?>
 
 
 
